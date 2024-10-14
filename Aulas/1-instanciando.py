@@ -8,7 +8,7 @@ class Pessoa:
 
 # Criando uma instancia da classe Pessoa
 pessoa1 = Pessoa("Lucas", 31)
-pessoa2 = Pessoa("Nagila", 26)
+pessoa2 = Pessoa("Nagila", 27)
 
 # Chamando o método de instância 
 pessoa1.apresentar()
