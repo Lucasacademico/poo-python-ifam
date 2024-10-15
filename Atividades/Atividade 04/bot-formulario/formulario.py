@@ -1,9 +1,3 @@
-from botcity.web import WebBot, Browser, By
-from botcity.maestro import *
-from webdriver_manager.chrome import ChromeDriverManager
-BotMaestroSDK.RAISE_NOT_CONNECTED = False
-
-
 class FormBase:
     def __init__(self, nome, idade, sexo, email, telefone):
         self._nome = nome
@@ -99,67 +93,3 @@ class FormLogin(FormContato):
 
     def informacao(self):
         return f"{super().informacao()}, \nSenha: {self._senha}"
-
-
-def main():
-    maestro = BotMaestroSDK.from_sys_args()
-    execution = maestro.get_execution()
-    print(f"Task ID is: {execution.task_id}")
-    print(f"Task Parameters are: {execution.parameters}")
-
-    bot = WebBot()
-    bot.headless = False
-    bot.browser = Browser.CHROME
-    bot.driver_path = ChromeDriverManager().install()
-    
-
-    print("Iniciando a automação do formulário de produto.")
-
-    form_login = FormLogin(
-        nome='Lucas Andrade', idade=31, sexo='Masculino', email='Lrandrade20@gmail.com', telefone='929981458913', 
-        assunto='Teste', mensagem='Busquem conhecimento', senha='senha123'
-    )
-    
-
-    # Automação Form Base
-    bot.browse(r'C:\Users\matutino\Desktop\poo-python-ifam\Exercicios\bot-formulario\form_base.html')
-    bot.find_element('//*[@id="nome"]', By.XPATH).send_keys(form_login.nome)
-    bot.wait(1000)
-    bot.find_element('//*[@id="idade"]', By.XPATH).send_keys(form_login.idade)
-    bot.wait(1000)
-    bot.find_element('//*[@id="email"]', By.XPATH).send_keys(form_login.email)
-    bot.wait(1000)
-    bot.find_element('//*[@id="telefone"]', By.XPATH).send_keys(form_login.telefone)
-    bot.wait(1000)
-    bot.enter()
-    bot.wait(3000)
-
-    # Automação Form Login
-    bot.browse(r'C:\Users\matutino\Desktop\poo-python-ifam\Exercicios\bot-formulario\form_login.html')
-    bot.find_element('//*[@id="email"]', By.XPATH).send_keys(form_login.email)
-    bot.wait(1000)
-    bot.find_element('//*[@id="senha"]', By.XPATH).send_keys(form_login.senha)
-    bot.wait(1000)
-    bot.enter()
-    bot.wait(3000)
-
-    # Automação Form Contato
-    bot.browse(r'C:\Users\matutino\Desktop\poo-python-ifam\Exercicios\bot-formulario\form_contato.html')
-    bot.find_element('//*[@id="assunto"]', By.XPATH).send_keys(form_login.assunto)
-    bot.wait(1000)
-    bot.find_element('//*[@id="mensagem"]', By.XPATH).send_keys(form_login.mensagem)
-    bot.wait(1000)
-    bot.enter()
-    bot.wait(3000)
-
-    print(form_login.informacao())
-
-
-def not_found(label):
-    print(f"Element not found: {label}")
-
-
-if __name__ == '__main__':
-    main()
-
-

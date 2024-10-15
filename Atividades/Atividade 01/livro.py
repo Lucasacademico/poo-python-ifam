@@ -63,11 +63,12 @@ livraria.mostrar_inventario()
 livraria.emprestar_livro('Prince of Thorns')
 livraria.emprestar_livro('Prince of Thorns')
 
-
-
+# Funções livro
 livro1.devolver()
 livro2.devolver()
 livro1.mostrar_info()
+livro2.mostrar_info()
+
 
 
 

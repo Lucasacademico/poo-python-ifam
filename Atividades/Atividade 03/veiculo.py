@@ -22,7 +22,7 @@ class Veiculo:
         self._modelo = valor
 
     def informacao(self):
-        print(f'Marca: {self.marca}, Modelo: {self.modelo}')
+        return f'Marca: {self.marca}, Modelo: {self.modelo}'
 
 class Carro(Veiculo):
     def __init__(self, marca, modelo, numero_portas):
@@ -32,5 +32,8 @@ class Carro(Veiculo):
     def informacao(self):
         return f"{super().informacao()} com {self.numero_portas} portas"
 
-carro = Carro("Mitsubishi", "Triton", 4)
-print(carro.informacao())
+
+carro1 = Carro("Mitsubishi", "Triton", 4)
+carro2 = Carro("Strada", "Fiat", 2)
+print(carro1.informacao())
+print(carro2.informacao())
