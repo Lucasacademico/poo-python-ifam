@@ -60,9 +60,11 @@ livraria.adicionar_livro(livro2)
 
 # Mostrar inventário
 livraria.mostrar_inventario()
+livraria.emprestar_livro('Prince of Thorns')
+livraria.emprestar_livro('Prince of Thorns')
 
-livraria.emprestar_livro('Prince of Thorns')
-livraria.emprestar_livro('Prince of Thorns')
+
+
 livro1.devolver()
 livro2.devolver()
 livro1.mostrar_info()
