@@ -19,3 +19,7 @@ Após ativar o ambiente virtual, instale as dependências necessárias usando o 
 ```bash
 pip install -r requirements.txt
 ```
+
+## 3. Alterar Paths dos Formulários HTML no arquivo bot.py
+
+Copie o Path dos arquivos da pasta formulario para os caminhos do arquivo bot.py conforme máquina do usuário.
